@@ -1,4 +1,4 @@
-# Python Algorithmia example for Smart Python Code Suggestions
+# Smart Python Code Suggestions using Algorithmia
 
 
 Install requirements
