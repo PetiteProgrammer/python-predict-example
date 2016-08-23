@@ -10,9 +10,9 @@ def autocomplete(algo, code):
     return algo.pipe(code).result
 
 
-def autocomplete_sequence(algo, code, num_tokens):
+def autocomplete_sequence(algo, code, num_tokens, num_results=1):
     "Returns auto complete result with num_tokens"
-    options = {'code': code, 'num_tokens': num_tokens}
+    options = {'code': code, 'num_tokens': num_tokens, 'num_results': num_results}
     return algo.pipe(options).result
 
 if __name__ == '__main__':
@@ -20,9 +20,9 @@ if __name__ == '__main__':
     if api_key == '<YOUR API KEY>':
         api_key = input('Algorithmia API key:')
     client = Algorithmia.client(api_key)
-    algo = client.algo('PetiteProgrammer/pythoncodeprediction/0.2.0')
+    algo = client.algo('PetiteProgrammer/pythoncodeprediction/1.0.3')
 
     while True:
         code = input('>')
-        suggestion = autocomplete_sequence(algo, code, 3)
-        print(suggestion)
+        suggestion = autocomplete_sequence(algo, code, 5)
+        print([' '.join(tokens) for tokens in suggestion][0])
