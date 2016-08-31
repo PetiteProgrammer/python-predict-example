@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if api_key == '<YOUR API KEY>':
         api_key = input('Algorithmia API key:')
     client = Algorithmia.client(api_key)
-    algo = client.algo('PetiteProgrammer/pythoncodeprediction/1.0.3')
+    algo = client.algo('PetiteProgrammer/pythoncodeprediction/1.0.4')
 
     while True:
         code = input('>')
